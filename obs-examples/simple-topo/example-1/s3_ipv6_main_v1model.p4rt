@@ -1,0 +1,273 @@
+{
+ "pkgInfo": {
+  "arch": "v1model"
+ },
+ "tables": [
+  {
+   "preamble": {
+    "id": 33584318,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_parser_inst.parser_tbl",
+    "alias": "parser_tbl"
+   },
+   "matchFields": [
+    {
+     "id": 1,
+     "name": "p.indices.curr_offset",
+     "bitwidth": 16,
+     "matchType": "EXACT"
+    }
+   ],
+   "actionRefs": [
+    {
+     "id": 16822659
+    },
+    {
+     "id": 16800567
+    }
+   ],
+   "constDefaultActionId": 16800567,
+   "size": "1024",
+   "isConstTable": true
+  },
+  {
+   "preamble": {
+    "id": 33562372,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_control_inst.IPv6.micro_control.ipv6_lpm_tbl",
+    "alias": "ipv6_lpm_tbl"
+   },
+   "matchFields": [
+    {
+     "id": 1,
+     "name": "hdr.ipv6.dstAddr",
+     "bitwidth": 128,
+     "matchType": "EXACT"
+    },
+    {
+     "id": 2,
+     "name": "hdr.ipv6.class",
+     "bitwidth": 8,
+     "matchType": "TERNARY"
+    },
+    {
+     "id": 3,
+     "name": "hdr.ipv6.label",
+     "bitwidth": 20,
+     "matchType": "TERNARY"
+    }
+   ],
+   "actionRefs": [
+    {
+     "id": 16832744
+    },
+    {
+     "id": 16807361
+    }
+   ],
+   "size": "1024",
+   "isConstTable": true
+  },
+  {
+   "preamble": {
+    "id": 33569152,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_deparser_inst.deparser_tbl",
+    "alias": "IPv6_micro_deparser_inst.deparser_tbl"
+   },
+   "matchFields": [
+    {
+     "id": 1,
+     "name": "parser_meta.curr_offset",
+     "bitwidth": 16,
+     "matchType": "EXACT"
+    },
+    {
+     "id": 2,
+     "name": "parser_meta.ipv6_v",
+     "bitwidth": 1,
+     "matchType": "EXACT"
+    }
+   ],
+   "actionRefs": [
+    {
+     "id": 16832386
+    },
+    {
+     "id": 16784333
+    },
+    {
+     "id": 16802740
+    },
+    {
+     "id": 16800567
+    }
+   ],
+   "constDefaultActionId": 16800567,
+   "size": "1024",
+   "isConstTable": true
+  },
+  {
+   "preamble": {
+    "id": 33574155,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.forward_tbl",
+    "alias": "forward_tbl"
+   },
+   "matchFields": [
+    {
+     "id": 1,
+     "name": "nh",
+     "bitwidth": 16,
+     "matchType": "EXACT"
+    }
+   ],
+   "actionRefs": [
+    {
+     "id": 16816625
+    },
+    {
+     "id": 16800567,
+     "annotations": [
+      "@defaultonly()"
+     ],
+     "scope": "DEFAULT_ONLY"
+    }
+   ],
+   "size": "1024",
+   "isConstTable": true
+  },
+  {
+   "preamble": {
+    "id": 33612765,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_deparser_inst.deparser_tbl",
+    "alias": "OneBigSwitchExample_micro_deparser_inst.deparser_tbl"
+   },
+   "matchFields": [
+    {
+     "id": 1,
+     "name": "parser_meta.eth_v",
+     "bitwidth": 1,
+     "matchType": "EXACT"
+    }
+   ],
+   "actionRefs": [
+    {
+     "id": 16804707
+    },
+    {
+     "id": 16800567
+    }
+   ],
+   "constDefaultActionId": 16800567,
+   "size": "1024",
+   "isConstTable": true
+  }
+ ],
+ "actions": [
+  {
+   "preamble": {
+    "id": 16800567,
+    "name": "NoAction",
+    "alias": "NoAction"
+   }
+  },
+  {
+   "preamble": {
+    "id": 16818291,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_parser_inst.micro_parser_init",
+    "alias": "OneBigSwitchExample_micro_parser_inst.micro_parser_init"
+   }
+  },
+  {
+   "preamble": {
+    "id": 16802801,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_parser_inst.i_0_start_0",
+    "alias": "i_0_start_0"
+   }
+  },
+  {
+   "preamble": {
+    "id": 16793342,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_parser_inst.micro_parser_init",
+    "alias": "IPv6_micro_parser_inst.micro_parser_init"
+   }
+  },
+  {
+   "preamble": {
+    "id": 16822659,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_parser_inst.i_112_start_0",
+    "alias": "i_112_start_0"
+   }
+  },
+  {
+   "preamble": {
+    "id": 16832744,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_control_inst.IPv6.micro_control.process",
+    "alias": "process"
+   },
+   "params": [
+    {
+     "id": 1,
+     "name": "nh",
+     "bitwidth": 16
+    }
+   ]
+  },
+  {
+   "preamble": {
+    "id": 16807361,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_control_inst.IPv6.micro_control.default_act",
+    "alias": "default_act"
+   }
+  },
+  {
+   "preamble": {
+    "id": 16832386,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_deparser_inst.set_offset_112",
+    "alias": "set_offset_112"
+   }
+  },
+  {
+   "preamble": {
+    "id": 16784333,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_deparser_inst.ipv6_14_54",
+    "alias": "ipv6_14_54"
+   }
+  },
+  {
+   "preamble": {
+    "id": 16802740,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.ipv6_i.IPv6_micro_deparser_inst.set_offset_112_ipv6_14_54",
+    "alias": "set_offset_112_ipv6_14_54"
+   }
+  },
+  {
+   "preamble": {
+    "id": 16816625,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_control_inst.OneBigSwitchExample.micro_control.forward",
+    "alias": "forward"
+   },
+   "params": [
+    {
+     "id": 1,
+     "name": "dstAddr",
+     "bitwidth": 48
+    },
+    {
+     "id": 2,
+     "name": "srcAddr",
+     "bitwidth": 48
+    },
+    {
+     "id": 3,
+     "name": "port",
+     "bitwidth": 9
+    }
+   ]
+  },
+  {
+   "preamble": {
+    "id": 16804707,
+    "name": "csa_ingress.OneBigSwitchExample_inst.OneBigSwitchExample_micro_deparser_inst.eth_0_14",
+    "alias": "eth_0_14"
+   }
+  }
+ ]
+}
